@@ -11,3 +11,5 @@ Some more details:
 A hint shows that the password begins with `D1v1`, which upon processing produces the instruction `mov $rsi, $rdi` (Intel syntax) with a trailing `0x48` byte. Guessing the following instructions to be simply `mov $rdi, 0x7B3DC26F1` and `call $rsi` (which is actually correct in this scenario), one can assemble these instructions using `radare2`, `nasm` or any suitable tool to obtain the probable contents of the memory block.
 
 The next obvious step is to search each word from the input such that its corresponding salted hashed subarray equals our guess. Brute force ftw.
+
+These ideas are implemented in [solve.py](./solve.py).
